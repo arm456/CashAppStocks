@@ -1,11 +1,13 @@
 package com.example.cashappstocks.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cashappstocks.R
 import com.example.cashappstocks.dagger2.CashStocksApplication
+import com.example.cashappstocks.databinding.FragmentStocksOptionsBinding
 import com.example.cashappstocks.repository.CashStocksRepository
 import javax.inject.Inject
 
@@ -14,15 +16,23 @@ class CashStockOptionsFragment(contentLayoutId: Int) : Fragment(contentLayoutId)
     @Inject
     lateinit var stocksRepository: CashStocksRepository
 
+    private var _binding: FragmentStocksOptionsBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentStocksOptionsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ((activity?.application) as CashStocksApplication).appComponent.inject(this)
 
-        val validStockOptions = view.findViewById<Button>(R.id.option_1)
-        val invalidStockOptions = view.findViewById<Button>(R.id.option_2)
-        val emptyStockOptions = view.findViewById<Button>(R.id.option_3)
-
-        validStockOptions.setOnClickListener {
+        binding.validStockOption.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()?.replace(
                 R.id.container,
                 StocksPortfolioFragment.newInstance(
@@ -31,7 +41,7 @@ class CashStockOptionsFragment(contentLayoutId: Int) : Fragment(contentLayoutId)
                 )
             )?.addToBackStack(StocksPortfolioFragment::class.java.canonicalName)?.commit()
         }
-        invalidStockOptions.setOnClickListener {
+        binding.invalidStockOption.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()?.replace(
                 R.id.container,
                 StocksPortfolioFragment.newInstance(
@@ -40,7 +50,7 @@ class CashStockOptionsFragment(contentLayoutId: Int) : Fragment(contentLayoutId)
                 )
             )?.addToBackStack(StocksPortfolioFragment::class.java.canonicalName)?.commit()
         }
-        emptyStockOptions.setOnClickListener {
+        binding.emptyStockOption.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()?.replace(
                 R.id.container,
                 StocksPortfolioFragment.newInstance(
@@ -49,5 +59,10 @@ class CashStockOptionsFragment(contentLayoutId: Int) : Fragment(contentLayoutId)
                 )
             )?.addToBackStack(StocksPortfolioFragment::class.java.canonicalName)?.commit()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

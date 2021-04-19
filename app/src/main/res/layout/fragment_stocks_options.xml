@@ -3,27 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp">
+    android:padding="@dimen/stock_item_margin">
 
     <Button
-        android:id="@+id/option_1"
+        android:id="@+id/valid_stock_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="valid_stock_options"
+        android:text="@string/valid_stock_portfolio"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/option_2"
+        android:id="@+id/invalid_stock_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="invalid_valid_stock_options"
-        app:layout_constraintTop_toBottomOf="@+id/option_1" />
+        android:text="@string/invalid_stock_portfolio"
+        app:layout_constraintTop_toBottomOf="@+id/valid_stock_option" />
 
     <Button
-        android:id="@+id/option_3"
+        android:id="@+id/empty_stock_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="empty_stock_options"
-        app:layout_constraintTop_toBottomOf="@+id/option_2" />
+        android:text="@string/empty_stocks_options"
+        app:layout_constraintTop_toBottomOf="@+id/invalid_stock_option" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

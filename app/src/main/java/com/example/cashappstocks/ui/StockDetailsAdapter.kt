@@ -28,7 +28,7 @@ class StockDetailsAdapter(
         holder.stockName?.text = stock.ticker
         val numFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.US)
         val stockPriceInCents: String = numFormat.format((stock.currentPriceCents)?.div(100.0))
-        holder.stockDescription?.text = stockPriceInCents
+        holder.stockPrice?.text = stockPriceInCents
         if (stock.quantity == null) {
             holder.stockStatus?.text = "${"("} ${0} ${")"}"
         } else {
@@ -40,7 +40,7 @@ class StockDetailsAdapter(
 
     class StoresViewHolder(binding: ItemStocksBinding) : RecyclerView.ViewHolder(binding.root) {
         val stockName: TextView? = binding.stockName
-        val stockDescription: TextView? = binding.stockDescription
+        val stockPrice: TextView? = binding.stockPrice
         val stockStatus: TextView? = binding.stockStatus
     }
 }

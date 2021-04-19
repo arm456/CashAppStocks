@@ -19,6 +19,16 @@
         tools:text="Square" />
 
     <TextView
+        android:id="@+id/stock_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/stock_status"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="stock desc" />
+
+    <TextView
         android:id="@+id/stock_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,15 +39,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Stock status" />
-
-    <TextView
-        android:id="@+id/stock_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/stock_status"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="stock desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

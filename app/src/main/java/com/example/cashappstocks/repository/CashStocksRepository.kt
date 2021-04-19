@@ -18,14 +18,12 @@ class CashStocksRepositoryImpl @Inject constructor(private val cashStocksAPI: Ca
     override suspend fun getCashStocksResponse(jsonType: String): CashStocksResponseResult {
         return try {
             withContext(Dispatchers.IO) {
-                val stocksResponse = cashStocksAPI.geCashStocksResponse(jsonType).execute()
+                val stocksResponse = cashStocksAPI.getCashStocksResponse(jsonType).execute()
                 if (stocksResponse.isSuccessful && stocksResponse.body() != null) {
                     CashStocksResponseResult.Success(stocksResponse.body())
                 } else {
                     CashStocksResponseResult.Failure(
-                        NetworkException(
-                            stocksResponse.errorBody()?.string()
-                        )
+                        NetworkException(stocksResponse.errorBody()?.string())
                     )
                 }
             }

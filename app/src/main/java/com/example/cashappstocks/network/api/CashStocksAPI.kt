@@ -7,5 +7,5 @@ import retrofit2.http.Path
 
 interface CashStocksAPI {
     @GET("cash-homework/cash-stocks-api/{jsonType}")
-    fun geCashStocksResponse(@Path("jsonType") jsonType: String): Call<CashStocksResponse>
+    fun getCashStocksResponse(@Path("jsonType") jsonType: String): Call<CashStocksResponse>
 }

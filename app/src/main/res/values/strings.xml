@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CashAppStocks</string>
     <string name="stocks_empty_response">Empty Portfolio</string>
+    <string name="valid_stock_portfolio">valid stock options</string>
+    <string name="invalid_stock_portfolio">invalid stock options</string>
+    <string name="empty_stocks_options">empty stock options</string>
 </resources>
