@@ -1,6 +1,8 @@
 package com.example.cashappstocks.dagger2
 
 import android.content.Context
+import com.example.cashappstocks.ui.CashStockOptionsFragment
+import com.example.cashappstocks.ui.StocksPortfolioFragment
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -17,4 +19,8 @@ interface AppComponent {
     interface Factory {
         fun create(@BindsInstance context: Context): AppComponent
     }
+
+    fun inject(stockOptionsFragment: CashStockOptionsFragment)
+
+    fun inject(stocksPortfolioFragment: StocksPortfolioFragment)
 }
