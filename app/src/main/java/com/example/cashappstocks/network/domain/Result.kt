@@ -1,7 +1,7 @@
 package com.example.cashappstocks.network.domain
 
 /**
- * Sealed class for Success, failure & Loading results for DoorDash store feed
+ * Sealed class for Success, failure & Loading results for Stocks Response
  */
 sealed class CashStocksResponseResult {
     data class Success(val stocksFeed: CashStocksResponse?) : CashStocksResponseResult()

@@ -26,9 +26,9 @@ class CashStocksRepositoryTest {
     }
 
     @Test
-    fun getDoorDashStoreFeedSuccess() = runBlocking {
+    fun getStocksFeedSuccess() = runBlocking {
         val store = Stock(
-            "SQ", "Square", "USD", 27079, "9"
+            "SQ", "Square", "USD", 27079, 9
         )
         val responseList = listOf(store)
         Mockito.`when`(
@@ -50,7 +50,7 @@ class CashStocksRepositoryTest {
     }
 
     @Test
-    fun getDoorDashStoreFeedError() = runBlocking {
+    fun getStocksFeedError() = runBlocking {
         Mockito.`when`(
             stocksAPI.getCashStocksResponse(ArgumentMatchers.anyString())
         ).thenReturn(

@@ -37,9 +37,9 @@ class StocksPortfolioViewModelTest {
     }
 
     @Test
-    fun getDoorDashStoreFeed() = coroutineTestRule.runBlockingTest {
+    fun getStocksFeedResponse() = coroutineTestRule.runBlockingTest {
         val store = Stock(
-            "SQ", "Square", "USD", 27079, "9"
+            "SQ", "Square", "USD", 27079, 9
         )
         val stores = mutableListOf(store)
         `when`(repo.getCashStocksResponse(anyString())).thenReturn(CashStocksResponseResult.Success(

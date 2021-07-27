@@ -18,6 +18,7 @@ Assumptions:-
 • Shows a progress indicator every time we try to get the response back from the backend.
 • Display a list of stocks if the response is valid & has data
 • Display relevant text on receiving error response (or) empty response (or) due to network failure.
+• We define two states - Success & Failure to identify the response we get back from the backend.
 
 
 Language and Libraries used:-
