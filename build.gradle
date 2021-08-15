@@ -8,6 +8,7 @@ buildscript {
         retrofitVersion = '2.9.0'
         mockito2CoreVersion = '3.0.0'
         mockitoKotlinVersion = '2.1.0'
+        roomVersion = '2.3.0'
     }
 
     repositories {

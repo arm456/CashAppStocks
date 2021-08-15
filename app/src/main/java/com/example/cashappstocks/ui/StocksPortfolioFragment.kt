@@ -1,7 +1,6 @@
 package com.example.cashappstocks.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +40,11 @@ class StocksPortfolioFragment(contentLayoutId: Int) : Fragment(contentLayoutId) 
         ((activity?.application) as CashStocksApplication).appComponent.inject(this)
 
         portfolioViewModel = ViewModelProvider(
-            this, StocksPortfolioViewModel.Factory(repository = cashStocksRepository)
+            this,
+            StocksPortfolioViewModel.Factory(
+                repository = cashStocksRepository,
+                context = this.context
+            )
         ).get(StocksPortfolioViewModel::class.java)
         arguments?.getString(PORTFOLIO_ID)?.let { portfolioViewModel.getStockDetails(it) }
 
@@ -58,7 +61,8 @@ class StocksPortfolioFragment(contentLayoutId: Int) : Fragment(contentLayoutId) 
             viewLifecycleOwner,
             Observer {
                 binding.loadingView.loadingSpinner.visibility = View.GONE
-                storesAdapter.setData(it)
+                if (it != null)
+                    storesAdapter.setData(it)
                 if (it.size == 0)
                     binding.emptyText.visibility = View.VISIBLE
             }

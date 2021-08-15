@@ -63,6 +63,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
+    // Room components
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
     //Mockito & Coroutines
     testImplementation "org.mockito:mockito-core:$mockito2CoreVersion"
     testImplementation 'android.arch.core:core-testing:1.1.1'
